@@ -9,6 +9,7 @@ set sm
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
+"set t_Co=256
 
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
@@ -27,7 +28,7 @@ let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 "golang
 "Processing... % (ctrl+c to stop)
 let g:fencview_autodetect=0
-set rtp+=$GOROOT/misc/vim
+"set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示相关  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,7 +38,9 @@ set cuc
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
 "color desert     " 设置背景主题  
-color ron     " 设置背景主题  
+color molokai     " 设置背景主题  
+set background=dark
+"colorscheme solarized
 "color torte     " 设置背景主题  
 "set guifont=Courier_New:h10:cANSI   " 设置字体  
 "autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
@@ -103,7 +106,8 @@ nmap \ \cc
 vmap \ \cc
 
 "将tab替换为空格
-nmap tt :%s/\t/    /g<CR>
+"todo
+nmap tt :TagbarToggle<CR>
 
 
 
@@ -184,7 +188,7 @@ imap <C-a> <Esc>^
 imap <C-e> <Esc>$
 vmap <C-c> "+y
 set mouse=v
-"set clipboard=unnamed
+set clipboard=unnamed
 "去空行  
 nnoremap <F2> :g/^\s*$/d<CR> 
 "比较文件  
@@ -282,6 +286,7 @@ set autoread
 " quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 "代码补全 
+"todo
 set completeopt=preview,menu 
 "允许插件  
 "filetype plugin on
@@ -352,14 +357,13 @@ set scrolloff=3
 ""endfunction
 filetype plugin indent on 
 "打开文件类型检测, 加了这句才可以用智能补全
-set completeopt=longest,menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags的设定  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Sort_Type = "name"    " 按照名称排序  
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-let Tlist_Compart_Format = 1    " 压缩方式  
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
+"let Tlist_Sort_Type = "name"    " 按照名称排序  
+"let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
+"let Tlist_Compart_Format = 1    " 压缩方式  
+"let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
 ""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
 ""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
 "let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
@@ -372,30 +376,30 @@ set autochdir
 "其他东东
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "默认打开Taglist 
-let Tlist_Auto_Open=0 
+"let Tlist_Auto_Open=0 
 """""""""""""""""""""""""""""" 
 " Tag list (ctags) 
 """""""""""""""""""""""""""""""" 
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
-let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
+"let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
+"let Tlist_File_Fold_Auto_Close = 1
+"let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
+"let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 " minibufexpl插件的一般设置
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1  
-nmap tl :Tlist<cr>
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1  
+"nmap tl :Tlist<cr>
 
 "python补全
 let g:pydiction_location = '~/.vim/after/complete-dict'
 let g:pydiction_menu_height = 20
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+"let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
 
 
 set iskeyword+=.
@@ -425,30 +429,38 @@ let g:indentLine_char = '┊'
 "ndle 'tpope/vim-rails.git'
 " vim-scripts repos
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+"Bundle 'FuzzyFinder'
 " non github repos
-Bundle 'https://github.com/wincent/command-t.git'
+"Bundle 'https://github.com/wincent/command-t.git'
 Bundle 'Auto-Pairs'
-Bundle 'python-imports.vim'
-Bundle 'CaptureClipboard'
-Bundle 'ctrlp-modified.vim'
+"Bundle 'python-imports.vim'
+"Bundle 'CaptureClipboard'
+"Bundle 'ctrlp-modified.vim'
 Bundle 'last_edit_marker.vim'
-Bundle 'synmark.vim'
+"Bundle 'synmark.vim'
 "Bundle 'Python-mode-klen'
-Bundle 'SQLComplete.vim'
-Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
+"Bundle 'SQLComplete.vim'
+"Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
 "Bundle 'JavaScript-Indent'
 "Bundle 'Better-Javascript-Indentation'
-Bundle 'jslint.vim'
-Bundle "pangloss/vim-javascript"
-Bundle 'Vim-Script-Updater'
-Bundle 'ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
-Bundle 'jsbeautify'
-Bundle 'The-NERD-Commenter'
+"Bundle 'jslint.vim'
+"Bundle 'pangloss/vim-javascript'
+"Bundle 'Vim-Script-Updater'
+"Bundle 'ctrlp.vim'
+"Bundle 'tacahiroy/ctrlp-funky'
+"Bundle 'jsbeautify'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'fatih/vim-go'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'rdnetto/YCM-Generator'
 "django
-Bundle 'django_templates.vim'
-Bundle 'Django-Projects'
+"Bundle 'django_templates.vim'
+"Bundle 'Django-Projects'
 
 "Bundle 'FredKSchott/CoVim'
 "Bundle 'djangojump'
@@ -469,3 +481,7 @@ let g:ctrlp_custom_ignore = '\v\.(exe|so|dll)$'
 let g:ctrlp_extensions = ['funky']
 
 let NERDTreeIgnore=['\.pyc']
+let mapleader=','
+hi Normal  ctermfg=252 ctermbg=none
+let g:ycm_extra_conf_globlist = ['~/Workspace/elab-gn/*']
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
