@@ -458,6 +458,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rdnetto/YCM-Generator'
+Bundle 'cespare/vim-toml'
 "django
 "Bundle 'django_templates.vim'
 "Bundle 'Django-Projects'
