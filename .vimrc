@@ -11,6 +11,7 @@ set wildmenu
 set mousemodel=popup
 "set t_Co=256
 
+let g:ycm_server_python_interpreter = 'python'
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
 au FileType c setlocal dict+=~/.vim/dict/c.dict
@@ -38,9 +39,6 @@ set cuc
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
 "color desert     " 设置背景主题  
-color molokai     " 设置背景主题  
-set background=dark
-"colorscheme solarized
 "color torte     " 设置背景主题  
 "set guifont=Courier_New:h10:cANSI   " 设置字体  
 "autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
@@ -486,3 +484,9 @@ let mapleader=','
 hi Normal  ctermfg=252 ctermbg=none
 let g:ycm_extra_conf_globlist = ['~/Workspace/elab-gn/*']
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+set background=dark
+color molokai     " 设置背景主题  
+"color solarized
